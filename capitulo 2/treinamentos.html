@@ -29,7 +29,33 @@
 
 <script src="js/jquery.js"></script>
 <script>
+  // igual ao video
+  
+        /*$.ajax({
 
+            url : 'http://mirrorfashion.caelum.com.br/treinamentos',
+            dataType: 'jsonp',
+            success: function(retorno){
+
+                $.each(retorno.treinamentos, function(){
+
+                    var treinamento = this;
+
+                    $('<li>').text(treinamento.nome).css({'color':'green'}).appendTo('#lista');
+                });
+
+            }
+
+        });*/
+
+        // igual a exercicio
+        
+        $.get('http://mirrorfashion.caelum.com.br/treinamentos', function(retorno){
+
+            $.each(retorno.treinamentos, function(){
+            $('<li>').css({'color': 'green'}).text(this.nome).appendTo('#lista');
+            });
+        },'jsonp');
 </script>
 
 </body>
